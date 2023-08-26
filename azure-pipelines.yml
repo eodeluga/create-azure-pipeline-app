@@ -15,9 +15,5 @@ steps:
       sshPassphrase: $(PASS_PHRASE)
       sshKeySecureFile: $(SSH_SECURE_FILE)
   - script: |
-      echo "StrictHostKeyChecking no" > ~/.ssh/config
-      chmod 600 ~/.ssh/$(SSH_SECURE_FILE)
-    displayName: 'Set SSH permissions'
-  - script: |
       ssh -v -i ~/.ssh/$(SSH_SECURE_FILE) $(SERVER) -p $(PORT) "touch ~/agent_connected"
     displayName: 'Running remote server scripts'
