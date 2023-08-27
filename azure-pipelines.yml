@@ -16,4 +16,5 @@ steps:
       sshKeySecureFile: $(SSH_SECURE_FILE)
   - script: |
       ssh -v -i ~/.ssh/$(SSH_SECURE_FILE) $(SERVER) -p $(PORT) "touch ~/agent_connected"
+      ssh -v -i ~/.ssh/$(SSH_SECURE_FILE) $(SERVER) -p $(PORT) "touch ~/agent_connected_2"
     displayName: 'Running remote server scripts'
