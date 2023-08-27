@@ -15,7 +15,9 @@ steps:
       sshPassphrase: $(PASS_PHRASE)
       sshKeySecureFile: $(SSH_SECURE_FILE)
   - script: |
-      cd ~/
-      export SSH_ASKPASS=echo $(REPO_KEY_PASS_PHRASE)
-      git clone $(GIT_CLONE)
+      ssh -v -i ~/.ssh/$(SSH_SECURE_FILE) $(SERVER) -p $(PORT) "\
+        cd ~/ \
+        export SSH_ASKPASS=echo $(REPO_KEY_PASS_PHRASE) \
+        git clone $(GIT_CLONE) \
+      "
     displayName: 'Running remote server scripts'
