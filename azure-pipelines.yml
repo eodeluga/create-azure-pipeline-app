@@ -1,0 +1,14 @@
+trigger:
+- master  # You can change this to the branch you want to trigger the pipeline on
+
+pool:
+  vmImage: $(POOL)
+
+steps:
+- task: DockerCompose@0
+  inputs:
+    containerregistrytype: 'Container Registry'
+    dockerComposeFile: '**/docker-compose.yml'
+    action: 'Run a Docker Compose command'
+    dockerComposeCommand: 'up'
+    arguments: '--build -d'
