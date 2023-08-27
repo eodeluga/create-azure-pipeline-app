@@ -5,6 +5,16 @@ pool:
   name: $(POOL)
 
 steps:
+- script: 
+    echo '' | tee -a ~/.bashrc
+    echo '# Add docker-compose to path' | tee -a ~/.bashrc
+    echo 'export DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker}' | tee -a ~/.bashrc
+    echo 'export PATH="$DOCKER_CONFIG/cli-plugins:$PATH"' | tee -a ~/.bashrc
+    source ~/.bashrc
+    mkdir -p $DOCKER_CONFIG/cli-plugins
+    curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o $DOCKER_CONFIG/cli-plugins/docker-compose
+    chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
+  displayName: 'Install docker-compose'
 - task: DockerCompose@0
   inputs:
     containerregistrytype: 'Container Registry'
