@@ -2,7 +2,7 @@ trigger:
 - main  # You can change this to the branch you want to trigger the pipeline on
 
 pool:
-  vmImage: $(POOL)
+  name: $(POOL)
 
 steps:
 - task: DockerCompose@0
