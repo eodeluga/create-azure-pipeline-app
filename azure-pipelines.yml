@@ -1,5 +1,5 @@
 trigger:
-- master  # You can change this to the branch you want to trigger the pipeline on
+- main  # You can change this to the branch you want to trigger the pipeline on
 
 pool:
   vmImage: $(POOL)
