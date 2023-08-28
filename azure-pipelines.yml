@@ -7,7 +7,7 @@ pool:
 steps:
 - script: |
     apt-get update -y
-    apt-get install docker-compose-plugin -y
+    apt-get install docker-compose -y
   displayName: 'Install docker-compose'
 - task: DockerCompose@0
   inputs:
