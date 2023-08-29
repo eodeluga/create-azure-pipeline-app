@@ -12,6 +12,8 @@ steps:
     sshPassphrase: '$(SSH_PASSPHRASE)'
     sshKeySecureFile: '$(SSH_KEY)'
 - script: |
+    ls ~/.ssh/
+    git add ~/.ssh/$(SSH_KEY)
     cd /home
     git clone $(REPO) 
   displayName: 'Clone repository'
