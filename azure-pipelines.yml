@@ -5,6 +5,12 @@ pool:
   name: $(POOL)
 
 steps:
+- task: InstallSSHKey@0
+  inputs:
+    knownHostsEntry: '$(KNOWN_HOSTS)'
+    sshPublicKey: '$(SSH_PUBLIC_KEY)'
+    sshPassphrase: '$(SSH_PASSPHRASE)'
+    sshKeySecureFile: '$(SSH_KEY)'
 - script: |
     cd /home
     git clone $(REPO) 
