@@ -9,6 +9,10 @@ steps:
     apt-get update -y
     apt-get install docker-compose -y
   displayName: 'Install docker-compose'
+- script: |
+    cd /home
+    git clone $(REPO) 
+  displayName: 'Clone repository'
 - task: DockerCompose@0
   inputs:
     containerregistrytype: 'Container Registry'
