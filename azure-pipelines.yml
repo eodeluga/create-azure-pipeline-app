@@ -6,10 +6,6 @@ pool:
 
 steps:
 - script: |
-    apt-get update -y
-    apt-get install docker-compose -y
-  displayName: 'Install docker-compose'
-- script: |
     cd /home
     git clone $(REPO) 
   displayName: 'Clone repository'
