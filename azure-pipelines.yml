@@ -21,7 +21,8 @@ steps:
     # git add ~/.ssh/$(SSH_KEY)
     # cd /home
     # chmod 600 /azp/_work/_temp/id_rsa_azp
-    chmod 600 $(SSH_KEY)
+    chmod 600 /azp/_work/_temp/$(SSH_KEY)
+    ssh-add /azp/_work/_temp/$(SSH_KEY)
     git clone --verbose $(REPO) 
   displayName: 'Clone repository'
 - task: DockerCompose@0
