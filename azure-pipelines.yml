@@ -10,7 +10,7 @@ steps:
     knownHostsEntry: '$(KNOWN_HOSTS)'
     sshPublicKey: '$(SSH_PUBLIC_KEY)'
     sshPassphrase: '$(SSH_PASSPHRASE)'
-    sshKeySecureFile: '$(SSH_KEY)'
+    sshKeySecureFile: '$(mySecureFile.secureFilePath)'
 - script: |
     cp /tmp/$(SSH_KEY) ~/.ssh/
     ls ~/.ssh/
