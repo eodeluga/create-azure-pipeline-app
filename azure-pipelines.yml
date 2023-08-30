@@ -11,6 +11,10 @@ steps:
     sshPublicKey: '$(SSH_PUBLIC_KEY)'
     sshPassphrase: '$(SSH_PASSPHRASE)'
     sshKeySecureFile: '$(SSH_KEY)'
+    addEntryToConfig: true
+    configHostAlias: ssh.dev.azure.com
+    configHostname: ssh.dev.azure.com
+    configUser: git
 - script: |
     # cp /tmp/$(SSH_KEY) ~/.ssh/
     # ls ~/.ssh/
