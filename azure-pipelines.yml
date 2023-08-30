@@ -15,7 +15,7 @@ steps:
     ls ~/.ssh/
     git add ~/.ssh/$(SSH_KEY)
     cd /home
-    git clone $(REPO) 
+    git clone --verbose $(REPO) 
   displayName: 'Clone repository'
 - task: DockerCompose@0
   inputs:
