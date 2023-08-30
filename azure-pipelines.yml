@@ -12,10 +12,10 @@ steps:
     sshPassphrase: '$(SSH_PASSPHRASE)'
     sshKeySecureFile: '$(SSH_KEY)'
 - script: |
-    cp /tmp/$(SSH_KEY) ~/.ssh/
-    ls ~/.ssh/
-    git add ~/.ssh/$(SSH_KEY)
-    cd /home
+    # cp /tmp/$(SSH_KEY) ~/.ssh/
+    # ls ~/.ssh/
+    # git add ~/.ssh/$(SSH_KEY)
+    # cd /home
     git clone --verbose $(REPO) 
   displayName: 'Clone repository'
 - task: DockerCompose@0
