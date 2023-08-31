@@ -9,7 +9,7 @@ steps:
   inputs:
     knownHostsEntry: '$(KNOWN_HOSTS)'
     sshPublicKey: '$(SSH_PUBLIC_KEY)'
-    sshPassphrase: '$(PASSPHRASE)'
+    sshPassphrase: '$(SSH_KEY_PASS_PHRASE)'
     sshKeySecureFile: '$(SSH_KEY)'
     addEntryToConfig: true
     configHostAlias: ssh.dev.azure.com
