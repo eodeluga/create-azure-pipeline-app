@@ -9,7 +9,7 @@ steps:
   inputs:
     knownHostsEntry: '$(KNOWN_HOSTS)'
     sshPublicKey: '$(SSH_PUBLIC_KEY)'
-    sshPassphrase: '$(SSH_PASSPHRASE)'
+    sshPassphrase: '$(PASSPHRASE)'
     sshKeySecureFile: '$(SSH_KEY)'
     addEntryToConfig: true
     configHostAlias: ssh.dev.azure.com
@@ -22,7 +22,8 @@ steps:
     # cd /home
     # chmod 600 /azp/_work/_temp/id_rsa_azp
     chmod 600 /azp/_work/_temp/$(SSH_KEY)
-    sshpass -p $(SSH_PASSPHRASE) ssh-add /azp/_work/_temp/$(SSH_KEY)
+    # sshpass -p $(SSH_PASSPHRASE)
+    ssh-add /azp/_work/_temp/$(SSH_KEY)
     git clone --verbose $(REPO) 
   displayName: 'Clone repository'
 - task: DockerCompose@0
