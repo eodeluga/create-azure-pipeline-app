@@ -17,7 +17,8 @@ steps:
     configUser: git
 - script: |
     # chmod 600 /azp/_work/_temp/$(SSH_KEY)
-    git clone --verbose $(REPO) 
+    git clone --verbose $(REPO)
+    ssh -l eodeluga $(HOSTNAME) -p 4089
   displayName: 'Clone repository'
 - task: DockerCompose@0
   inputs:
