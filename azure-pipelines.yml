@@ -23,7 +23,7 @@ steps:
     # chmod 600 /azp/_work/_temp/id_rsa_azp
     chmod 600 /azp/_work/_temp/$(SSH_KEY)
     # sshpass -p $(SSH_PASSPHRASE)
-    ssh-add /azp/_work/_temp/$(SSH_KEY)
+    # ssh-add /azp/_work/_temp/$(SSH_KEY)
     git clone --verbose $(REPO) 
   displayName: 'Clone repository'
 - task: DockerCompose@0
