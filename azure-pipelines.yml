@@ -18,12 +18,5 @@ steps:
 - script: |
     # chmod 600 /azp/_work/_temp/$(SSH_KEY)
     git clone --verbose $(REPO)
-    ssh -l eodeluga $(HOSTNAME) -p 4089
+    ssh -l eodeluga $(HOSTNAME) -p 4089 'touch ~/cooper'
   displayName: 'Clone repository'
-- task: DockerCompose@0
-  inputs:
-    containerregistrytype: 'Container Registry'
-    dockerComposeFile: '**/docker-compose.yml'
-    action: 'Run a Docker Compose command'
-    dockerComposeCommand: 'up'
-    arguments: '--build -d'
