@@ -1,6 +1,11 @@
 trigger:
-- main  # You can change this to the branch you want to trigger the pipeline on
-
+  branches:
+    include:
+      - main  # You can change this to the branch you want to trigger the pipeline on
+  paths:
+    exclude:
+      - README.md
+      - azure-pipelines.yml      
 pool:
   name: $(POOL)
 
