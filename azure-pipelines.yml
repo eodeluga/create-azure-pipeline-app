@@ -22,13 +22,12 @@ steps:
     sshPassphrase: '$(SERVER_PASS_PHRASE)'
     sshKeySecureFile: '$(SERVER_KEY)'
     addEntryToConfig: true
-    configHostAlias: dstar-core.local
-    configHostname: dstar-core.local
-    configUser: eodeluga
+    configHostAlias: $(SERVER_HOST)
+    configHostname: $(SERVER_HOST)
+    configUser: $(SERVER_USER)
 - script: |
-    # chmod 600 /azp/_work/_temp/$(SSH_KEY)
     git clone --verbose $(REPO)
-  displayName: 'Clone repository'
+  displayName: 'Clone code'
 - script: 
-    ssh -v $(HOSTNAME) -p 4089 'touch ~/cooper'
-  displayName: 'Remote server execution'    
+    ssh $(SERVER_HOST) -vl $(SERVER_USER) -p 4089 'touch ~/larry'
+  displayName: 'Execute code'
