@@ -1,5 +1,5 @@
 # Introduction 
-Azure DevOps Build and Deployment pipelines
+Azure DevOps Build and Deployment pipeline template
 
 # Getting Started
 Automates the cloning and deployment of a code repository to run in a Docker environment 
