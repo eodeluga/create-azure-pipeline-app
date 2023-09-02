@@ -33,5 +33,5 @@ steps:
 - script: 
     ssh $(SERVER_HOST) -l $(SERVER_USER) -p $(SERVER_PORT) '
       cd $(WORK_DIR) &&
-      ls'
+      docker-compose up --build -d'
   displayName: 'Execute code'
