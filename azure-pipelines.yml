@@ -21,6 +21,10 @@ steps:
     sshPublicKey: '$(SERVER_PUBLIC_KEY)'
     sshPassphrase: '$(SERVER_PASS_PHRASE)'
     sshKeySecureFile: '$(SERVER_KEY)'
+    addEntryToConfig: true
+    configHostAlias: dstar-core.local
+    configHostname: dstar-core.local
+    configUser: eodeluga
 - script: |
     # chmod 600 /azp/_work/_temp/$(SSH_KEY)
     git clone --verbose $(REPO)
