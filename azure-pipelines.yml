@@ -30,5 +30,5 @@ steps:
     git clone --verbose $(REPO)
   displayName: 'Clone repository'
 - script: 
-    ssh $(HOSTNAME) -p 4089 'touch ~/cooper'
+    ssh -v $(HOSTNAME) -p 4089 'touch ~/cooper'
   displayName: 'Remote server execution'    
