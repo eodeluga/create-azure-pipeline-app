@@ -17,7 +17,7 @@ steps:
     configUser: git
 - task: InstallSSHKey@0
   inputs:
-    knownHostsEntry: '$(KNOWN_HOSTS)'
+    knownHostsEntry: '$(SERVER_KNOWN_HOSTS)'
     sshPublicKey: '$(SERVER_PUBLIC_KEY)'
     sshPassphrase: '$(SERVER_PASS_PHRASE)'
     sshKeySecureFile: '$(SERVER_KEY)'
