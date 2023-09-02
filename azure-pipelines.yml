@@ -15,10 +15,16 @@ steps:
     configHostAlias: ssh.dev.azure.com
     configHostname: ssh.dev.azure.com
     configUser: git
+- task: InstallSSHKey@0
+  inputs:
+    knownHostsEntry: '$(KNOWN_HOSTS)'
+    sshPublicKey: '$(SERVER_PUBLIC_KEY)'
+    sshPassphrase: '$(SERVER_PASS_PHRASE)'
+    sshKeySecureFile: '$(SERVER_KEY)'
 - script: |
     # chmod 600 /azp/_work/_temp/$(SSH_KEY)
     git clone --verbose $(REPO)
   displayName: 'Clone repository'
 - script: 
-    ssh -l eodeluga $(HOSTNAME) -p 4089 'touch ~/cooper'
+    ssh $(HOSTNAME) -p 4089 'touch ~/cooper'
   displayName: 'Remote server execution'    
