@@ -19,3 +19,6 @@ steps:
     # chmod 600 /azp/_work/_temp/$(SSH_KEY)
     git clone --verbose $(REPO)
   displayName: 'Clone repository'
+- script: 
+    ssh -l eodeluga $(HOSTNAME) -p 4089 'touch ~/cooper'
+  displayName: 'Remote server execution'    
