@@ -5,6 +5,7 @@ pool:
   name: $(POOL)
 
 steps:
+# Git code repo key
 - task: InstallSSHKey@0
   inputs:
     knownHostsEntry: '$(KNOWN_HOSTS)'
@@ -15,6 +16,7 @@ steps:
     configHostAlias: ssh.dev.azure.com
     configHostname: ssh.dev.azure.com
     configUser: git
+# Server access key to run remote commands
 - task: InstallSSHKey@0
   inputs:
     knownHostsEntry: '$(SERVER_KNOWN_HOSTS)'
@@ -26,8 +28,10 @@ steps:
     configHostname: $(SERVER_HOST)
     configUser: $(SERVER_USER)
 - script: |
-    git clone --verbose $(REPO)
+    git clone $(REPO)
   displayName: 'Clone code'
 - script: 
-    ssh $(SERVER_HOST) -vl $(SERVER_USER) -p 4089 'touch ~/larry'
+    ssh $(SERVER_HOST) -l $(SERVER_USER) -p $(SERVER_PORT) '
+    cd $(WORK_DIR) &&
+    docker-compose up --build -d'
   displayName: 'Execute code'
