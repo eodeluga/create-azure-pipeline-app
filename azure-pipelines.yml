@@ -31,7 +31,5 @@ steps:
     git clone $(REPO)
   displayName: 'Clone code'
 - script: 
-    ssh $(SERVER_HOST) -l $(SERVER_USER) -p $(SERVER_PORT) '
-    cd $(WORK_DIR) &&
-    docker-compose up --build -d'
+    ssh $(SERVER_HOST) -l $(SERVER_USER) -p $(SERVER_PORT) 'cd $(WORK_DIR) && docker-compose up --build -d'
   displayName: 'Execute code'
