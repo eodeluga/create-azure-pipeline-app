@@ -32,6 +32,7 @@ steps:
   displayName: 'Clone code'
 - script: 
     ssh $(SERVER_HOST) -l $(SERVER_USER) -p $(SERVER_PORT) '
-      cd $(WORK_DIR) &&
-      docker-compose up --build -d'
+      bash -lc "
+        cd $(WORK_DIR) &&
+        docker-compose up --build -d"'
   displayName: 'Execute code'
